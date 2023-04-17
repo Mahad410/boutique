@@ -1,7 +1,7 @@
 import React from 'react';
-import {previewClient, urlFor} from "@/lib/client";
+import previewClient, {urlFor} from "@/lib/client";
 import Image from 'next/image';
-import Back from "@/components/Back";
+import Back from "@/pages/components/Back";
 import plus from "@/public/images/plus-inverted.png";
 import minus from "@/public/images/minus-inverted.png";
 import cart from "@/public/images/inverted cart.png";

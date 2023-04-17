@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const StateContext = createContext(undefined);
 
 export const StateProvider = ({children}) => {
-    const[showCart, setShowCart] = useState(false);
+    const [showCart, setShowCart] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartQuantity, setCartQuantity] = useState(0);

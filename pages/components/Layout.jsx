@@ -15,9 +15,9 @@ const Layout = ({children}) => {
                 {
                     showCart && <div className={'overlay'} onClick={() => setShowCart(false)}></div>
                 }
-                    <main>
-                        {children}
-                    </main>
+                <main>
+                    {children}
+                </main>
             </div>
         </>
     )

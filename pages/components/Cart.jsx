@@ -7,10 +7,11 @@ import plus from "@/public/images/plus-inverted.png";
 import remove from "@/public/images/remove.png";
 import Link from "next/link";
 import close from "@/public/images/close-invert.png";
-
-const Cart = () => {
+import {previewClient} from "@/lib/client";
+const Cart = ({assets}) => {
+    console.log(assets);
     const cartRef = useRef();
-    const {cartTotal, cartItems, cartItemsQuantity, removeFromCart, showCart, setShowCart} = useStateValue();
+    const {cartTotal, cartItems, cartItemsQuantity, removeFromCart, setShowCart} = useStateValue();
     return (
         <>
             <div className={"cart_body"}>
@@ -66,7 +67,7 @@ const Cart = () => {
                         ) : (
                             <div className={"empty_cart"}>
                                 <h1>Your cart is empty</h1>
-                                <Link href={'/'} onClick={()=>setShowCart(false)}>Go for shopping</Link>
+                                <Link href={'/'} onClick={() => setShowCart(false)}>Go for shopping</Link>
                             </div>
                         )
                         }
@@ -88,6 +89,14 @@ const Cart = () => {
             </div>
         </>
     )
+}
+const getServerSideProps = async () => {
+    const assets = await previewClient.fetch(`*[_type == "asset"]{image, name}`);
+    return {
+        props: {
+            assets,
+        },
+    };
 }
 
 export default Cart

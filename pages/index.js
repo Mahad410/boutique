@@ -1,25 +1,22 @@
 import React from 'react';
-import Featured from './featured';
-import {Categories, Hero, Navbar} from './../components';
-import {previewClient} from "@/lib/client";
+import {Categories, Hero, Navbar} from './components';
+import previewClient from "@/lib/client";
 
-const Home = ({featuredproducts}) => {
-
+const Home = ({products}) => {
     return (
         <>
             <Navbar/>
             <Hero/>
             <Categories/>
-            <Featured featuredProducts={featuredproducts}/>
         </>
     )
 }
 export const getServerSideProps = async () => {
-    const featuredQuery = '*[_type == "product" && featured == true]';
-    const featuredproducts = await previewClient.fetch(featuredQuery);
+    const productQuery = '*[_type == "product"]';
+    const products = await previewClient.fetch(productQuery);
     return {
         props: {
-            featuredproducts
+            products
         }
     };
 }
