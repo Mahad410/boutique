@@ -20,8 +20,7 @@ const Home = ({allProduct, featuredproducts}) => {
                 {
                     allProducts ? product ? product.map((product) =>
                             <Product key={product._id} products={product}/>) : <Loader/>
-                        :
-                        isFeatured ? featured ? featured.map((product) =>
+                        : isFeatured ? featured ? featured.map((product) =>
                                 <Product key={product._id} products={product}/>) : <Loader/>
                             : isMen ? manProduct ? product.map((product) =>
                                     <Product key={product._id} products={product}/>) : <Loader/>
