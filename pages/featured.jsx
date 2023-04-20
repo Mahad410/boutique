@@ -2,7 +2,6 @@ import React from 'react';
 import Product from "@/pages/components/Product";
 import previewClient from "@/lib/client";
 import Back from "@/pages/components/Back";
-import {useStateValue} from "@/content/StateContent";
 
 const Featured = ({featuredproducts}) => {
     const product = featuredproducts;
@@ -10,16 +9,16 @@ const Featured = ({featuredproducts}) => {
         <>
             <Back heading={"Featured"} link={""}/>
             <div className={"mt_product"}>
-            <div className={"flex flex_wrap"}>
-                {
-                    product?.map((featuredProduct) => {
-                        return (
-                            <Product key={featuredProduct._id} products={featuredProduct}/>
-                        );
-                    })
-                }
-            </div>
+                <div className={"flex flex_wrap"}>
+                    {
+                        product?.map((featuredProduct) => {
+                            return (
+                                <Product key={featuredProduct._id} products={featuredProduct}/>
+                            );
+                        })
+                    }
                 </div>
+            </div>
         </>
     )
 };

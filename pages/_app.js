@@ -7,10 +7,10 @@ export default function App({Component, pageProps}) {
     return (
 
         <StateProvider>
-                <Layout>
-                    <Toaster/>
-                    <Component {...pageProps} />
-                </Layout>
+            <Layout>
+                <Toaster/>
+                <Component {...pageProps} />
+            </Layout>
         </StateProvider>
 
     )

@@ -5,9 +5,7 @@ import previous from '@/public/images/previous.png';
 import cart from "@/public/images/shopping-bag.png";
 import Cart from "@/pages/components/Cart";
 import {useStateValue} from "@/content/StateContent";
-import previewClient from "@/lib/client";
 import client from "@sanity/client";
-import config from "@/sanityBotique/sanity.config";
 
 const Back = ({heading, link}) => {
     const router = useRouter();
@@ -35,14 +33,14 @@ const Back = ({heading, link}) => {
     )
 }
 
-export async function getServerSideProps(context){
+export async function getServerSideProps(context) {
     const previewClient = client({
-    projectId:'348cqm7m',
-    dataset:'production',
-    useCdn:false,
-    apiVersion:"2021-10-21",
-    token:process.env.SANITY_TOKEN,
-});
+        projectId: '348cqm7m',
+        dataset: 'production',
+        useCdn: false,
+        apiVersion: "2021-10-21",
+        token: process.env.SANITY_TOKEN,
+    });
 
     const asset = '*[_type == "asset"]{image,name}';
     const assets = await previewClient.fetch(asset);

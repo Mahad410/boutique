@@ -7,6 +7,7 @@ import plus from "@/public/images/plus-inverted.png";
 import remove from "@/public/images/remove.png";
 import Link from "next/link";
 import close from "@/public/images/close-invert.png";
+
 const Cart = ({assets}) => {
     console.log(assets);
     const cartRef = useRef();

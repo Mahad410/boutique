@@ -4,13 +4,13 @@ import {useStateValue} from "@/content/StateContent";
 
 const Categories = () => {
     const categories = [
-        {category: 'All', url: `/`, id: 2, click:()=>setAll()},
-        {category: 'Featured', id: 1, click:()=>setFeatured()},
-        {category: 'Women', id: 3, click:()=>setWomen()},
-        {category: 'Men', id: 4, click :()=>setMen()},
-        {category: 'Kids', id: 4, click :()=>setMen()},
+        {category: 'All', url: `/`, id: 2, click: () => setAll()},
+        {category: 'Featured', id: 1, click: () => setFeatured()},
+        {category: 'Women', id: 3, click: () => setWomen()},
+        {category: 'Men', id: 4, click: () => setMen()},
+        {category: 'Kids', id: 4, click: () => setMen()},
     ]
-        const {setAll,setFeatured,setWomen,setMen} = useStateValue();
+    const {setAll, setFeatured, setWomen, setMen} = useStateValue();
     return (
         <>
             <div className='category  flex_even flex '>

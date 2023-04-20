@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Cart from "@/pages/components/Cart";
 import cart from "@/public/images/shopping-bag.png";
 import {useStateValue} from "@/content/StateContent";
-import {urlFor} from "@/lib/client";
 
 const Navbar = ({asset}) => {
     const {cartItems, showCart, setShowCart} = useStateValue();
