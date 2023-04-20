@@ -9,8 +9,36 @@ export const StateProvider = ({children}) => {
     const [cartTotal, setCartTotal] = useState(0);
     const [cartQuantity, setCartQuantity] = useState(0);
     const [qty, setQty] = useState(1);
+    const [isFeatured, setIsFeatured] = useState(false);
+    const [isMen, setIsMen] = useState(false);
+    const [isWomen, setIsWomen] = useState(false);
+    const [allProducts, setAllProducts] = useState(true);
     let foundProduct;
 // increment quantity
+    const setFeatured = () => {
+        setIsFeatured(true);
+        setIsMen(false);
+        setIsWomen(false);
+        setAllProducts(false);
+    }
+    const setMen = () => {
+        setIsFeatured(false);
+        setIsMen(true);
+        setIsWomen(false);
+        setAllProducts(false);
+    }
+    const setWomen = () => {
+        setIsFeatured(false);
+        setIsMen(false);
+        setIsWomen(true);
+        setAllProducts(false);
+    }
+    const setAll = () => {
+        setIsFeatured(false);
+        setIsMen(false);
+        setIsWomen(false);
+        setAllProducts(true);
+    }
     const incQty = () => {
         setQty((prevQty) =>
             prevQty + 1
@@ -93,7 +121,15 @@ export const StateProvider = ({children}) => {
                 removeFromCart,
                 cartItemsQuantity,
                 showCart,
-                setShowCart
+                setShowCart,
+                setFeatured,
+                setMen,
+                setWomen,
+                setAll,
+                isFeatured,
+                isMen,
+                isWomen,
+                allProducts
             }}>
             {children}
         </StateContext.Provider>

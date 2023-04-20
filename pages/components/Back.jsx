@@ -9,10 +9,9 @@ import previewClient from "@/lib/client";
 import client from "@sanity/client";
 import config from "@/sanityBotique/sanity.config";
 
-const Back = ({heading, link, icons}) => {
+const Back = ({heading, link}) => {
     const router = useRouter();
     const {cartItems, showCart, setShowCart} = useStateValue();
-    console.log(icons)
     const handleBack = () => {
         router.back();
     }

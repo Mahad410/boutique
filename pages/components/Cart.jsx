@@ -7,7 +7,6 @@ import plus from "@/public/images/plus-inverted.png";
 import remove from "@/public/images/remove.png";
 import Link from "next/link";
 import close from "@/public/images/close-invert.png";
-import {previewClient} from "@/lib/client";
 const Cart = ({assets}) => {
     console.log(assets);
     const cartRef = useRef();
@@ -89,14 +88,6 @@ const Cart = ({assets}) => {
             </div>
         </>
     )
-}
-const getServerSideProps = async () => {
-    const assets = await previewClient.fetch(`*[_type == "asset"]{image, name}`);
-    return {
-        props: {
-            assets,
-        },
-    };
 }
 
 export default Cart

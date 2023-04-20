@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import {useRouter} from 'next/router';
+import {useStateValue} from "@/content/StateContent";
 
 const Categories = () => {
-    const router = useRouter();
     const categories = [
-        {category: 'Featured', url: `/featured`, id: 1},
-        {category: 'All', url: `/all`, id: 2},
-        {category: 'Summer', url: `/summer`, id: 3},
-        {category: 'Winter', url: `/winter`, id: 4},
-        {category: 'Autumn', url: `/autumn`, id: 5},
-        {category: 'Spring', url: `/spring`, id: 6},
+        {category: 'All', url: `/`, id: 2, click:()=>setAll()},
+        {category: 'Featured', id: 1, click:()=>setFeatured()},
+        {category: 'Women', id: 3, click:()=>setWomen()},
+        {category: 'Men', id: 4, click :()=>setMen()},
+        {category: 'Kids', id: 4, click :()=>setMen()},
     ]
+        const {setAll,setFeatured,setWomen,setMen} = useStateValue();
     return (
         <>
             <div className='category  flex_even flex '>
@@ -21,8 +20,8 @@ const Categories = () => {
                             // eslint-disable-next-line react/jsx-key
                             <div className='bullet'>
                                 <ul>
-                                    <li key={category._id}>
-                                        <Link href={category.url}>{category.category}</Link>
+                                    <li key={category._id} onClick={category.click}>
+                                        <Link href={''}>{category.category}</Link>
                                     </li>
                                 </ul>
                             </div>

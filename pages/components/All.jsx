@@ -1,15 +1,11 @@
 import React from 'react';
 import Product from "@/pages/components/Product";
 import previewClient from "@/lib/client";
-import Back from "@/pages/components/Back";
-import {useStateValue} from "@/content/StateContent";
 
-const Featured = ({featuredproducts}) => {
-    const product = featuredproducts;
+const All = ({allProducts}) => {
+    const product = allProducts;
     return (
         <>
-            <Back heading={"Featured"} link={""}/>
-            <div className={"mt_product"}>
             <div className={"flex flex_wrap"}>
                 {
                     product?.map((featuredProduct) => {
@@ -19,17 +15,16 @@ const Featured = ({featuredproducts}) => {
                     })
                 }
             </div>
-                </div>
         </>
     )
 };
-export default Featured;
+export default All;
 export const getServerSideProps = async () => {
-    const featuredQuery = '*[_type == "product" && featured == true]';
-    const featuredproducts = await previewClient.fetch(featuredQuery);
+    const allProductQuery = '*[_type == "product"]';
+    const allProducts = await previewClient.fetch(allProductQuery);
     return {
         props: {
-            featuredproducts,
+            allProducts,
         }
     };
 }
